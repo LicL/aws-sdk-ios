@@ -20,6 +20,7 @@
 #import "AWSLogging.h"
 #import "AWSGZIP.h"
 #import "AWSMantle.h"
+#import "NHNetworkTime.h"
 
 NSString *const AWSDateRFC822DateFormat1 = @"EEE, dd MMM yyyy HH:mm:ss z";
 NSString *const AWSDateISO8601DateFormat1 = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
@@ -52,7 +53,7 @@ NSString *const AWSDateShortDateFormat2 = @"yyyy-MM-dd";
 static NSTimeInterval _clockskew = 0.0;
 
 + (NSDate *)aws_clockSkewFixedDate {
-    return [[NSDate date] dateByAddingTimeInterval:-1 * _clockskew];
+    return [[NSDate networkDate] dateByAddingTimeInterval:-1 * _clockskew];
 }
 
 + (NSDate *)aws_dateFromString:(NSString *)string {

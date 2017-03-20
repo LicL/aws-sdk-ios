@@ -13,5 +13,6 @@ Pod::Spec.new do |s|
                      :tag => s.version}
   s.requires_arc = true
   s.dependency 'AWSCore', '2.5.2'
+  s.dependency 'NHNetworkTime', '1.7'
   s.source_files = 'AWSLambda/*.{h,m}'
 end
